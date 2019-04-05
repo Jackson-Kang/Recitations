@@ -84,6 +84,8 @@ void init(cache* c, int S, int E, int B)
                         B: the number of byte per cache block in 'one entry'.
     */
 
+   int s_index = 0, e_index = 0, b_index = 0;
+
     c->e = (entry **)malloc(sizeof(entry *) * S);
 
     for (int s_index = 0; s_index < S; s_index++)
@@ -93,15 +95,15 @@ void init(cache* c, int S, int E, int B)
     if (c->e != NULL)
     {
 
-        for (int s_index = 0; s_index < S; s_index++)
+        for (s_index = 0; s_index < S; s_index++)
         {
-            for (int e_index = 0; e_index < E; e_index++)
+            for (e_index = 0; e_index < E; e_index++)
             {
 
                 c->e[s_index][e_index].valid = 0;
                 c->e[s_index][e_index].tag = 0;
 
-                for (int b_index = 0; b_index < B; b_index++)
+                for (b_index = 0; b_index < B; b_index++)
                     c->e[s_index][e_index].block[b_index] = 0;
             }
         }
