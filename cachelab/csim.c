@@ -88,7 +88,7 @@ void init(cache* c, int S, int E, int B)
 
     c->e = (entry **)malloc(sizeof(entry *) * S);
 
-    for (int s_index = 0; s_index < S; s_index++)
+    for (s_index = 0; s_index < S; s_index++)
         c->e[s_index] = (entry *)malloc(sizeof(entry) * E);
     // dynamically allocate memory space for entries
 
